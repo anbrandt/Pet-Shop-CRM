@@ -61,6 +61,12 @@ public class Shop implements Comparable, Comparator {
 		saledCats.add(cat);
 	}
 
+
+	public void calcSalarySalesman() {
+
+	}
+
+
 	public void sale() {
 
 		String inputAnimal;
@@ -73,6 +79,8 @@ public class Shop implements Comparable, Comparator {
 		int lizardindex = 0;
 		int catindex = 0;
 		Integer price = 0;
+		Integer salary = 0;
+
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("What would you like to buy? Type cat or lizard");
 		inputAnimal = scanner.next();
@@ -80,14 +88,9 @@ public class Shop implements Comparable, Comparator {
 		System.out.println("Who is selling this animal? Write a surname");
 		inputSalesman = scanner.next();
 
-
 		if (inputAnimal.equals("cat")) {
-			allCatsInTheShop.stream()
-//					.findFirst().ge
-			
-
 			System.out.println("The cat costs " + allCatsInTheShop.get(catindex).getPrice());
-			saleTheCat(cat);
+			saleTheCat(allCatsInTheShop.get(catindex));
 			System.out.println(allCatsInTheShop.get(catindex).getPrice());
 			catindex++;
 
@@ -135,12 +138,12 @@ public class Shop implements Comparable, Comparator {
 //
 //				}
 
-		}
+	}
 
 
-		//LIZARDS
-		List<Lizard> allLizardsInTheShop = new ArrayList<>();
-		List<Lizard> saledLizards = new ArrayList<>();
+	//LIZARDS
+	List<Lizard> allLizardsInTheShop = new ArrayList<>();
+	List<Lizard> saledLizards = new ArrayList<>();
 
 	public void addLizardTotheShop(Lizard lizard) {
 		allLizardsInTheShop.add(lizard);
@@ -198,6 +201,9 @@ public class Shop implements Comparable, Comparator {
 		}
 		return salesman;
 	}
+		for (int i = 0; i < myAnimalShop.saledCats.size(); i++) {
+
+		}
 
 	public void getAllSalesmans() {
 		System.out.println("LIST OF ALL SALESMANS");
@@ -305,11 +311,16 @@ public class Shop implements Comparable, Comparator {
 		Salesman salesman2 = new Salesman("Kozłowski", "00012", 33, 0);
 		Salesman salesman3 = new Salesman("Miłosz", "00013", 41, 0);
 		Salesman salesman4 = new Salesman("Szymborska", "00014", 19, 0);
+		Salesman salesman5 = new Salesman("Konwicki", "00015", 21, 0);
+		Salesman salesman6 = new Salesman("Lem", "00016", 55, 0);
+
 
 		myAnimalShop.addSalesmanToTheShop(salesman1);
 		myAnimalShop.addSalesmanToTheShop(salesman2);
 		myAnimalShop.addSalesmanToTheShop(salesman3);
 		myAnimalShop.addSalesmanToTheShop(salesman4);
+		myAnimalShop.addSalesmanToTheShop(salesman5);
+		myAnimalShop.addSalesmanToTheShop(salesman6);
 
 		myAnimalShop.getAllSalesmans();
 
@@ -335,20 +346,28 @@ public class Shop implements Comparable, Comparator {
 		myAnimalShop.getAllTheLizardsLeftInTheShop();
 
 
+		myAnimalShop.sale();
+
+		System.out.println(myAnimalShop.saledCats.size());
 //		myAnimalShop.sale();
 //		System.out.println(myAnimalShop.saledLizards.size());
 //		System.out.println(myAnimalShop.saledCats.size());
 
-		myAnimalShop.allLizardsInTheShop.stream()
-				.forEach(u -> u.getPrice());
+//		myAnimalShop.allLizardsInTheShop.stream()
+//				.forEach(u -> u.getPrice());
 
 
-		myAnimalShop.listOfAllManagers.stream()
-				.forEach(u -> u.setDailyIncome(1333));
+//		myAnimalShop.listOfAllSalesmans.stream()
+//				.forEach( u -> u.setDailyIncome(1333));
+//
+//		myAnimalShop.listOfAllSalesmans.stream()
+//				.forEach(b -> System.out.println(b.getSurname() + b.getDailyIncome()));
+//		myAnimalShop.listOfAllManagers.stream()
+//				.forEach(u -> u.setDailyIncome(1333));
 
 		//UUUUUUUUUU JEA MOJE PIERWSZE WYKORZYSTANIE STREAMÓW W PRAKTYCE
-		myAnimalShop.listOfAllManagers.stream()
-				.forEach(b -> System.out.println(b.getSurname() + b.getDailyIncome()));
+//		myAnimalShop.listOfAllManagers.stream()
+//				.forEach(b -> System.out.println(b.getSurname() + b.getDailyIncome()));
 
 
 	}
