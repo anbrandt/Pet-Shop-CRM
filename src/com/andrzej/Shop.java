@@ -90,8 +90,11 @@ public class Shop implements Comparable, Comparator {
 
 		if (inputAnimal.equals("cat")) {
 			System.out.println("The cat costs " + allCatsInTheShop.get(catindex).getPrice());
+			price = allCatsInTheShop.get(catindex).getPrice();
 			saleTheCat(allCatsInTheShop.get(catindex));
-			System.out.println(allCatsInTheShop.get(catindex).getPrice());
+			salary += price;
+
+
 			catindex++;
 
 		} else if (inputAnimal.equals("lizard")) {
@@ -201,9 +204,7 @@ public class Shop implements Comparable, Comparator {
 		}
 		return salesman;
 	}
-		for (int i = 0; i < myAnimalShop.saledCats.size(); i++) {
 
-		}
 
 	public void getAllSalesmans() {
 		System.out.println("LIST OF ALL SALESMANS");
